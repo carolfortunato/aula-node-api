@@ -8,4 +8,8 @@ function findById(id) {
 	return transactions.find( t => t.id === id)
 }
 
-module.exports = { create, findById }
+function findAll() {
+  return transactions
+}
+
+module.exports = { create, findById, findAll }
