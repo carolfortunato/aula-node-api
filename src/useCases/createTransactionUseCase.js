@@ -1,15 +1,9 @@
-const repository = require('../repositories/transactionRepository')
+const Repository = require('../repositories/transactionRepository')
 
-function execute(body) {
-  if ( repository.findById(body.id) ) {
-    return {
-      success: false,
-      code: 400,
-      message: 'transaction already exists'
-    }
-  }
+async function execute(body) {
+  const repository = new Repository()
   
-  repository.create( body )
+  await repository.create( body )
 
   return { success: true }
 }

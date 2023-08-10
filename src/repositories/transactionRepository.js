@@ -3,7 +3,9 @@ const transactionModel = require('../models/transaction')
 
 class TransactionRepository{
   async create(params){
-
+    await startConnection();
+    await transactionModel.create(params)
+    await closeConnection();
   }
 
   async findAll(){
