@@ -10,7 +10,7 @@ async function createTransaction(request, response) {
 	const result = await create(body)
 
 	if(!result.success){
-		return response.status(result.code).json( {error: result.message })
+		return response.status(500).json( {error: result.errorMessage })
 	}
 
   return response.status(201).json(body)
